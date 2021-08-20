@@ -53,7 +53,7 @@ export async function listGroups(ctx: Context) {
   if (admin) {
     let groups = Object.keys(ctx.dbchat.groups)
     if (groups.length > 0) {
-      ctx.reply(`Groups are:\n ${JSON.stringify(groups, null, 2)}`, { reply_to_message_id: ctx.message.message_id })
+      ctx.reply(`Groups are:\n ${Object.keys(groups).join(' ')}`, { reply_to_message_id: ctx.message.message_id })
     } else {
       ctx.reply(`There are no groups created yet`, { reply_to_message_id: ctx.message.message_id })
     }

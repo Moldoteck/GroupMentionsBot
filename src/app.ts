@@ -13,7 +13,7 @@ import { setLanguage, sendLanguage } from '@/handlers/language'
 import { attachUser } from '@/middlewares/attachUser'
 import { attachChat } from '@/middlewares/attachChat'
 import { addGroups, addUsers, listGroups, listUsers, rmGroups, rmUsers, tagGroups } from './handlers/groupManager'
-import { setCommands } from './handlers/commands'
+import { countChat, setCommands } from './handlers/commands'
 
 // Middlewares
 bot.use(ignoreOldMessageUpdates)
@@ -35,6 +35,7 @@ bot.command('rmusr', rmUsers)
 bot.command('listusr', listUsers)
 
 bot.command('cmd', setCommands)
+bot.command('cc', countChat)
 
 // Actions
 bot.action(localeActions, setLanguage)

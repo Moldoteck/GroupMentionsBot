@@ -29,3 +29,7 @@ export async function findChat(id: number) {
   }
   return chat
 }
+
+export async function countChats() {
+  return await ChatModel.countDocuments({})
+}
