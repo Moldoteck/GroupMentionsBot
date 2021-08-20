@@ -1,9 +1,9 @@
 {
-  "name": "telegraf-template",
+  "name": "groupmentionsbot",
   "version": "1.0.0",
-  "description": "Telegram bot template based on telegraf.js.org",
+  "description": "Telegram bot to mention groups of people",
   "main": "dist/app.js",
-  "repository": "https://github.com/Moldoteck/telegraf-template",
+  "repository": "https://github.com/Moldoteck/GroupMentionsBot",
   "author": "Moldoteck <moldotecko@gmail.com>",
   "license": "MIT",
   "private": false,

@@ -1,5 +1,13 @@
 name: English
 help: |
-  <b>Bot</b> allows you to see how Telegraf bots can be built.
+  <b>Bot</b> allows you to create groups of users and tag them as you wish
+  Only <b>admins</b> can use this bot, that's why it needs admin rights
+  Type /taggr to tag group of people
+  Type /addgr to create new group
+  Type /rmgr to remove a group
+  Type /listgr to list all groups
+  Type /addusr to add users to a group
+  Type /rmusr to remove users from a group
+  Type /listusr to show all users of a group
 language: Please, select the language.
 language_selected: <b>Bot</b> now speaks English.

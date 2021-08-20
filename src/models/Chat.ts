@@ -6,6 +6,9 @@ export class Chat {
 
   @prop({ required: true, default: 'en' })
   language: string
+
+  @prop({ required: true, default: {} })
+  groups: Object
 }
 
 // Get Chat model

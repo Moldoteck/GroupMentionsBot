@@ -12,6 +12,7 @@ import { i18n, attachI18N } from '@/helpers/i18n'
 import { setLanguage, sendLanguage } from '@/handlers/language'
 import { attachUser } from '@/middlewares/attachUser'
 import { attachChat } from '@/middlewares/attachChat'
+import { addGroups, addUsers, listGroups, listUsers, rmGroups, rmUsers, tagGroups } from './handlers/groupManager'
 
 // Middlewares
 bot.use(ignoreOldMessageUpdates)
@@ -21,6 +22,16 @@ bot.use(i18n.middleware(), attachI18N)
 // Commands
 bot.command(['help', 'start'], sendHelp)
 bot.command('language', sendLanguage)
+
+
+bot.command('addgr', addGroups)
+bot.command('rmgr', rmGroups)
+bot.command('listgr', listGroups)
+bot.command('taggr', tagGroups)
+
+bot.command('addusr', addUsers)
+bot.command('rmusr', rmUsers)
+bot.command('listusr', listUsers)
 // Actions
 bot.action(localeActions, setLanguage)
 // Errors
