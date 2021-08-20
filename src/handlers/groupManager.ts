@@ -148,6 +148,8 @@ export async function tagGroups(ctx: Context) {
             if (users.length > 0) {
               allMentions += users + ' '
             }
+          }else{
+            ctx.reply(`Group ${groups[i]} doesn't exist`, { reply_to_message_id: ctx.message.message_id })
           }
         }
         if (allMentions.length > 0) {
