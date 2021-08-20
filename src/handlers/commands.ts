@@ -8,7 +8,8 @@ let commands: BotCommand[] = [
   { command: 'listgr', description: 'list all groups' },
   { command: 'addusr', description: 'add users to a group' },
   { command: 'rmusr', description: 'remove users from a group' },
-  { command: 'listusr', description: 'show all users of a group' }
+  { command: 'listusr', description: 'show all users of a group' },
+  { command: 'help', description: 'show help' }
 ]
 
 export async function setCommands(ctx: Context) {
