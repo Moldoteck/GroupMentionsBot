@@ -2,12 +2,12 @@ name: English
 help: |
   <b>Bot</b> allows you to create groups of users and tag them as you wish
   Only <b>admins</b> can use this bot, that's why it needs admin rights
-  Type /taggr to tag group of people
-  Type /addgr to create new group
-  Type /rmgr to remove a group
+  Type /taggr group1 group2 to tag group of people from group1 and group2
+  Type /addgr group1 group2 to create new groups (group1 and group2)
+  Type /rmgr group1 group2 to remove group1 group2
   Type /listgr to list all groups
-  Type /addusr to add users to a group
-  Type /rmusr to remove users from a group
-  Type /listusr to show all users of a group
+  Type /addusr group1 @usr1 @usr2 to add users to a specific group
+  Type /rmusr group1 @usr1 @usr2 to remove users from a specific group
+  Type /listusr group1 to show all users of group1
 language: Please, select the language.
 language_selected: <b>Bot</b> now speaks English.
