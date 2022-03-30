@@ -10,7 +10,7 @@ let commands: BotCommand[] = [
   { command: 'addusr', description: 'add users to a group' },
   { command: 'rmusr', description: 'remove users from a group' },
   { command: 'listusr', description: 'show all users of a group' },
-  { command: 'help', description: 'show help' }
+  { command: 'help', description: 'show help' },
 ]
 
 export async function setCommands(ctx: Context) {
@@ -22,10 +22,23 @@ export async function setCommands(ctx: Context) {
 export async function countChat(ctx: Context) {
   if ('' + ctx.from.id == process.env.OWNER_ID) {
     let chats = await countChats()
-    //TODO: check remained channels
-    ctx.reply('Total chat ' + chats)
-  }
-  else {
+    let users_tot = 0
+    let chat_nr = 0
+    let users_pr = 0
+    for (let element of chats) {
+      console.log(element)
+      try {
+        users_tot += await ctx.telegram.getChatMembersCount(element.id)
+        chat_nr += 1
+      } catch (err) {
+        console.log(err)
+        users_pr += 1
+      }
+    }
+    ctx.reply('Total users ' + users_tot)
+    ctx.reply('Private Users ' + users_pr)
+    ctx.reply('Chats ' + chat_nr)
+  } else {
     console.log(ctx.from.id, process.env.OWNER_ID)
   }
 }
