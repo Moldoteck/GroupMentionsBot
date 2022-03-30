@@ -34,10 +34,12 @@ export async function countChat(ctx: Context) {
         console.log(err)
         users_pr += 1
       }
+      // wait onehundread ms
+      await new Promise((resolve) => setTimeout(resolve, 100))
     }
-    ctx.reply('Total users ' + users_tot)
-    ctx.reply('Private Users ' + users_pr)
-    ctx.reply('Chats ' + chat_nr)
+    ctx.reply('Total users ' + users_tot).catch((err) => console.log(err))
+    ctx.reply('Private Users ' + users_pr).catch((err) => console.log(err))
+    ctx.reply('Chats ' + chat_nr).catch((err) => console.log(err))
   } else {
     console.log(ctx.from.id, process.env.OWNER_ID)
   }
