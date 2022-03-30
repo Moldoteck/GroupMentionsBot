@@ -1,4 +1,4 @@
-import { countChats } from '@/models'
+import { countChats, findAllChats } from '@/models'
 import { Context } from 'telegraf'
 import { BotCommand } from 'telegraf/typings/core/types/typegram'
 
@@ -21,7 +21,7 @@ export async function setCommands(ctx: Context) {
 
 export async function countChat(ctx: Context) {
   if ('' + ctx.from.id == process.env.OWNER_ID) {
-    let chats = await countChats()
+    let chats = await findAllChats()
     let users_tot = 0
     let chat_nr = 0
     let users_pr = 0
