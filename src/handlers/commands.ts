@@ -35,7 +35,7 @@ export async function countChat(ctx: Context) {
         users_pr += 1
       }
       // wait onehundread ms
-      await new Promise((resolve) => setTimeout(resolve, 100))
+      await new Promise((resolve) => setTimeout(resolve, 500))
     }
     ctx.reply('Total users ' + users_tot).catch((err) => console.log(err))
     ctx.reply('Private Users ' + users_pr).catch((err) => console.log(err))

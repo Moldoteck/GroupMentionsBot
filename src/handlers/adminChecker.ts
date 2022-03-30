@@ -9,7 +9,7 @@ export async function checkAdmin(ctx: Context) {
       ctx.reply("Can't detect admins, probably bot should be promoted to admins", { reply_to_message_id: ctx.message.message_id })
       isAdmin = false
     } else {
-      console.log(chat_admins)
+     // console.log(chat_admins)
       if (chat_admins_id.indexOf(ctx.from.id) != -1) {
         isAdmin = true
       } else {
