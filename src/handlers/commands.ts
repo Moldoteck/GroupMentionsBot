@@ -20,27 +20,34 @@ export async function setCommands(ctx: Context) {
 }
 
 export async function countChat(ctx: Context) {
-  if ('' + ctx.from.id == process.env.OWNER_ID) {
+  if (''+ctx?.from?.id == process.env.OWNER_ID) {
     let chats = await findAllChats()
     let users_tot = 0
     let chat_nr = 0
     let users_pr = 0
     for (let element of chats) {
-      console.log(element)
       try {
-        users_tot += await ctx.telegram.getChatMembersCount(element.id)
-        chat_nr += 1
+        let chatObj = await ctx.telegram.getChat(element.id)
+        if (chatObj.type == 'private') {
+          users_pr += 1
+        } else {
+          chat_nr += 1
+          users_tot += await ctx.telegram.getChatMembersCount(element.id)
+        }
       } catch (err) {
         console.log(err)
-        users_pr += 1
       }
-      // wait onehundread ms
-      await new Promise((resolve) => setTimeout(resolve, 500))
+      await new Promise((resolve) => setTimeout(resolve, 100))
     }
-    ctx.reply('Total users ' + users_tot).catch((err) => console.log(err))
-    ctx.reply('Private Users ' + users_pr).catch((err) => console.log(err))
-    ctx.reply('Chats ' + chat_nr).catch((err) => console.log(err))
-  } else {
-    console.log(ctx.from.id, process.env.OWNER_ID)
+    ctx
+      .reply(
+        'Chat users ' +
+          users_tot +
+          '\nPrivate Users ' +
+          users_pr +
+          '\nChats ' +
+          chat_nr
+      )
+      .catch((err) => console.log(err))
   }
 }
