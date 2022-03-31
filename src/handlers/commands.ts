@@ -28,20 +28,20 @@ export async function countChat(ctx: Context) {
     for (let element of chats) {
       try {
         let chatObj = await customFunction(async () => {
-          await ctx.telegram.getChat(element.id)
+          return await ctx.telegram.getChat(element.id)
         })
         if (chatObj.type == 'private') {
           users_pr += 1
         } else {
           chat_nr += 1
           users_tot += await customFunction(async () => {
-            await ctx.telegram.getChatMembersCount(element.id)
+            return await ctx.telegram.getChatMembersCount(element.id)
           })
         }
       } catch (err) {
         console.log(err)
       }
-      await new Promise((resolve) => setTimeout(resolve, 100))
+      //await new Promise((resolve) => setTimeout(resolve, 100))
     }
     ctx
       .reply(
