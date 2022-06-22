@@ -30,11 +30,15 @@ export async function countChat(ctx: Context) {
         let chatObj = await customFunction(async () => {
           return await ctx.telegram.getChat(element.id)
         })
-        if(chatObj==undefined){
+
+        if (chatObj == undefined) {
           //delete chat from Chat db by id
           await deleteChat(element.id)
           continue
         }
+        await customFunction(async () => {
+          ctx.reply('Type ' + chatObj.type)
+        })
         if (chatObj.type == 'private') {
           users_pr += 1
         } else {
