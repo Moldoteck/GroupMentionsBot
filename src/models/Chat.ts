@@ -30,6 +30,11 @@ export async function findChat(id: number) {
   return chat
 }
 
+export async function deleteChat(id: number) {
+  //delete chat
+  await ChatModel.deleteOne({ id })
+}
+
 export async function countChats() {
   return await ChatModel.countDocuments({})
 }
