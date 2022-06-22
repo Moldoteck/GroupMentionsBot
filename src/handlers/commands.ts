@@ -36,9 +36,7 @@ export async function countChat(ctx: Context) {
           await deleteChat(element.id)
           continue
         }
-        await customFunction(async () => {
-          ctx.reply('Type ' + chatObj.type)
-        })
+        
         if (chatObj.type == 'private') {
           users_pr += 1
         } else {
