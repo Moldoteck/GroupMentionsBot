@@ -15,7 +15,9 @@ let commands: BotCommand[] = [
 
 export async function setCommands(ctx: Context) {
   if ('' + ctx.from.id == process.env.OWNER_ID) {
-    ctx.telegram.setMyCommands(commands)
+    ctx.telegram.setMyCommands(commands).catch((e) => {
+      console.log(e)
+    })
   }
 }
 
@@ -36,7 +38,7 @@ export async function countChat(ctx: Context) {
           await deleteChat(element.id)
           continue
         }
-        
+
         if (chatObj.type == 'private') {
           users_pr += 1
         } else {
